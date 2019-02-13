@@ -30,4 +30,21 @@ router.get('/', function( req, res, next) {
   }
 });
 
+// **************** POST ***********************//
+router.post('/insertar', function(req, res, next){
+  var nuevo_cliente = Object.assign({} , formato_cliente, req.body);
+
+  if(!datos){
+    datos = [];
+  }
+
+  datos.push(nuevo_cliente);
+  modelo_archivo.write(datos, function(err){
+    if(err){
+      return res.status(500).json({ 'Error': 'Error insertando nuevo cliente.' });
+    }
+    return res.status(200).json(nuevo_cliente);
+  });
+});
+
 module.exports = router;
