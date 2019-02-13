@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var modelo_archivo = require('./archivo'); //mdl_archivo
-var datos = null; //data
+var modelo_archivo = require('./archivo');
+var datos = null;
 
-var formato_cliente = { //plantilla_archivo
+var formato_cliente = {
   '_id':'',
   'RTN': '',
   'Empresa': '',
@@ -44,6 +44,41 @@ router.post('/insertar', function(req, res, next){
       return res.status(500).json({ 'Error': 'Error insertando nuevo cliente.' });
     }
     return res.status(200).json(nuevo_cliente);
+  });
+});
+
+
+// *************** PUT ************************//
+router.put('/actualizar/:idCliente', function(req, res, next){
+  var idCliente = req.params.idCliente;
+  var cambios = req.body;
+  var actualizado = null;
+  var nuevosValores = datos.map(
+    function(archivo){
+
+      if (archivo._id == idCliente)
+      {
+        var rtn = archivo.RTN;
+
+        actualizado = Object.assign(
+          {},
+          archivo,
+          cambios,
+          {'_id': idCliente},
+          {'RTN': rtn}
+          );
+        return actualizado;
+      }
+      return archivo;
+    }
+  );
+
+  datos = nuevosValores;
+  modelo_archivo.write(datos, function (err) {
+    if (err) {
+      return res.status(500).json({ 'Error': 'Error al actualizar el cliente.' });
+    }
+    return res.status(200).json(actualizado);
   });
 });
 
