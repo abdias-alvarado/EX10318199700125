@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "007c2c7d-13f2-4e01-a067-46cc806790f1",
+		"name": "EX10318199700125",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/clientes/insertar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "RTN",
+							"value": "0318199700125",
+							"type": "text"
+						},
+						{
+							"key": "Empresa",
+							"value": "NetGO Group",
+							"type": "text"
+						},
+						{
+							"key": "Correo",
+							"value": "a.alvarado@netgogroup.com",
+							"type": "text"
+						},
+						{
+							"key": "Rubro",
+							"value": "Software & Hardware",
+							"type": "text"
+						},
+						{
+							"key": "Direccion",
+							"value": "Res. Lomas del Guijarro, Calle París",
+							"type": "text"
+						},
+						{
+							"key": "Telefono",
+							"value": "+504 8882-2467",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/clientes/insertar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"clientes",
+						"insertar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/clientes/actualizar/1",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Correo",
+							"value": "a.alvarado@sternemedia.com",
+							"type": "text"
+						},
+						{
+							"key": "Telefono",
+							"value": "+502 9929-6120",
+							"type": "text"
+						},
+						{
+							"key": "RTN",
+							"value": "otrortndfsersdfsfd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/clientes/actualizar/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"clientes",
+						"actualizar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/clientes/eliminar/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/clientes/eliminar/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"clientes",
+						"eliminar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

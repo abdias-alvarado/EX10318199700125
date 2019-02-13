@@ -82,4 +82,25 @@ router.put('/actualizar/:idCliente', function(req, res, next){
   });
 });
 
+//**************** DELETE *****************************//
+router.delete('/eliminar/:idCliente', function(req, res, next){
+  var idCliente = req.params.idCliente;
+  var nuevosValores = datos.filter(
+    function (archivo) {
+      if (archivo._id == idCliente) {
+        return false;
+      }
+      return true;
+    }
+  );
+  datos = nuevosValores;
+  modelo_archivo.write(datos, function (err) {
+    if (err) {
+      return res.status(500).json({ 'Error': 'Error al eliminar el cliente.' });
+    }
+    return res.status(200).json({"Eliminado el registro": idCliente});
+  });
+});
+
+
 module.exports = router;
